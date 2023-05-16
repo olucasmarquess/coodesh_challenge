@@ -27,6 +27,9 @@ gem 'mongoid', '~> 8.0', '>= 8.0.3'
 # Is an HTML, XML, SAX, and Reader parser.
 gem 'nokogiri', '~> 1.14', '>= 1.14.4'
 
+#Makes consuming restful web services dead easy.
+gem 'httparty', '~> 0.13.7'
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 
