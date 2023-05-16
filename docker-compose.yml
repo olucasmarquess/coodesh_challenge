@@ -1,0 +1,18 @@
+version: '3.8'
+services:
+  mongo:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: <%= ENV['DATABASE_USERNAME'] || 'root' %>
+      MONGO_INITDB_ROOT_PASSWORD: <%= ENV['DATABASE_PASSWORD'] || 'password' %>
+
+  web:
+    build: .
+    command: bundle exec rails s -p 3005 -b 0.0.0.0
+    volumes:
+      - .:/open_food_scraping
+    ports:
+      - "3005:3005"
+    depends_on:
+      - mongo
