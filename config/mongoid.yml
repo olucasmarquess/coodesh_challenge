@@ -2,6 +2,15 @@ development:
   clients:
     default:
       uri: <%= ENV['DATABASE_URI'] || 'mongodb://localhost:27017/open_food_scraping_development' %>
+    # default:
+    #   database: open_food_scraping_development
+    #   hosts:
+    #     - localhost:27017
+    #   options:
+    #     read:
+    #       mode: :primary
+    #     max_pool_size: 1
+
 
 test:
   clients:
