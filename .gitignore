@@ -27,3 +27,6 @@
 
 # Ignore tool version file for ASDF
 .tool-versions
+
+# Ignore byebug command history file.
+.byebug_history

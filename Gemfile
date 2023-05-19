@@ -12,17 +12,20 @@ gem "puma", "~> 5.0"
 # An Object Document Mapper Framework for MongoDB.
 gem 'mongoid', '~> 8.0', '>= 8.0.3'
 
-# Build JSON APIs with ease [https://github.com/rails/jbuilder]
-# gem "jbuilder"
+#A Ruby driver for MongoDB
+gem 'mongo', '~> 2.2', '>= 2.2.5'
 
-# Use Redis adapter to run Action Cable in production
-# gem "redis", "~> 4.0"
+#The Mechanize library is used for automating interaction with websites
+gem 'mechanize', '~> 2.9', '>= 2.9.1'
 
-# Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
-# gem "kredis"
+#Clean ruby syntax for writing and deploying cron jobs.
+gem 'whenever', '~> 1.0'
 
-# Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
-# gem "bcrypt", "~> 3.1.7"
+# A Scope & Engine based, clean, powerful, agnostic, customizable and sophisticated paginator
+gem 'kaminari', '~> 1.2', '>= 1.2.2'
+
+# Kaminari-mongoid lets your Mongoid models be paginatable
+gem 'kaminari-mongoid', '~> 1.0', '>= 1.0.2'
 
 # Is an HTML, XML, SAX, and Reader parser.
 gem 'nokogiri', '~> 1.14', '>= 1.14.4'
@@ -36,18 +39,11 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 
-# Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
-# gem "rack-cors"
-
 group :development, :test do
-  # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
 end
 
 group :development do
-  # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
-  # gem "spring"
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   #Shim to load environment variables from .env into ENV in development.
   gem 'dotenv-rails'
