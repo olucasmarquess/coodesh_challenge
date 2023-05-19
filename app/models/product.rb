@@ -28,8 +28,6 @@ class Product
   def mark_as_imported
     update(status: :imported) if self.draft?
   end
-  #Ex:- :default =>''
-
 
   def self.sync
     unsynced.each do |product|

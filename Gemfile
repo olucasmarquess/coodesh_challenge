@@ -28,10 +28,13 @@ gem 'kaminari', '~> 1.2', '>= 1.2.2'
 gem 'kaminari-mongoid', '~> 1.0', '>= 1.0.2'
 
 # Is an HTML, XML, SAX, and Reader parser.
-gem 'nokogiri', '~> 1.14', '>= 1.14.4'
+gem 'nokogiri', '~> 1.15'
 
 #Makes consuming restful web services dead easy.
-gem 'httparty', '~> 0.13.7'
+gem 'httparty', '~> 0.21.0'
+
+#This is a JSON implementation as a Ruby extension in C.
+gem 'json', '~> 2.6', '>= 2.6.3'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
@@ -40,12 +43,10 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 
 group :development, :test do
-  gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem 'debug', '~> 1.8'
+  gem 'byebug', '~> 11.1', '>= 11.1.3'
+  gem 'dotenv-rails', '~> 2.8', '>= 2.8.1'
+  gem 'factory_bot_rails', '~> 6.2'
+  gem 'rspec-rails', '~> 6.0', '>= 6.0.2'
+  gem 'rails-controller-testing', '~> 1.0', '>= 1.0.5'
 end
-
-group :development do
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  #Shim to load environment variables from .env into ENV in development.
-  gem 'dotenv-rails'
-end
-

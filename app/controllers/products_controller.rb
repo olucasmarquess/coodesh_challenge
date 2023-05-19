@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
   end
 
   def index
-    @products = Product.page(params[:page].to_i).per(3)
+    @products = Product.page(params[:page].to_i).per(10)
   end
 
   def sync

@@ -1,5 +1,5 @@
 <h1>Products</h1>
-
+<%= button_to 'Manual Sync', sync_path, method: :get, class: 'btn btn-primary' %>
 <% if @products.any? %>
   <table>
     <thead>
@@ -37,6 +37,7 @@
   </table>
 
   <%= paginate @products %>
+
 <% else %>
   <p>No products found.</p>
 <% end %>
