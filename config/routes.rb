@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   root 'home#index'
 
-  get '/products', to: 'products#index'
-  get '/products/:code', to: 'products#show'
+  resources :products, only: [:index, :show]
   get '/sync', to: 'products#sync'
 end

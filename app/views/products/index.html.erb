@@ -1,8 +1,8 @@
-<h1>Products</h1>
+<h1>Products - Total: <%= @products.count %></h1>
 <%= button_to 'Manual Sync', sync_path, method: :get, class: 'btn btn-primary' %>
 <% if @products.any? %>
-  <table>
-    <thead>
+  <table style="text-align: center;">
+    <thead  style="text-align: center;">
       <tr>
         <th>Product Name</th>
         <th>Code</th>
@@ -20,16 +20,28 @@
     <tbody>
       <% @products.each do |product| %>
         <tr>
-            <td><%= product.product_name %></td>
+            <td><%= link_to product.product_name, product_path(product) %></td>
             <td><%= product.code %></td>
             <td><%= product.barcode %></td>
-            <td><%= product.url %></td>
+            <td><%= link_to "Click to see all", product.url %></td>
             <td><%= product.quantity %></td>
-            <td><%= product.categories %></td>
-            <td><%= product.packaging %></td>
+            <td>
+              <ul>
+                <% product.categories.split(',').each do |item| %>
+                  <li><%= item %></li>
+                <% end %>
+              </ul>
+            </td>
+            <td>
+              <ul>
+                <% product.packaging.split(',').each do |item| %>
+                  <li><%= item %></li>
+                <% end %>
+              </ul>
+            </td>
             <td><%= product.brands %></td>
-            <td><%= product.image_url %></td>
-            <td><%= product.imported_t %></td>
+            <td><%= image_tag product.image_url, style: "height: 120px;" %></td>
+            <td><%= product.imported_t.strftime('%m/%d/%Y - %H:%M') %></td>
             <td><%= product.status %></td>
         </tr>
       <% end %>
