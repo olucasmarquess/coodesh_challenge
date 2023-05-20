@@ -27,15 +27,19 @@
             <td><%= product.quantity %></td>
             <td>
               <ul>
-                <% product.categories.split(',').each do |item| %>
-                  <li><%= item %></li>
+                <% unless product.categories.nil? %>
+                  <% product.categories.split(',').each do |item| %>
+                    <li><%= item %></li>
+                  <% end %>
                 <% end %>
               </ul>
             </td>
             <td>
               <ul>
-                <% product.packaging.split(',').each do |item| %>
-                  <li><%= item %></li>
+                <% unless product.packaging.nil? %>
+                  <% product.packaging.split(',').each do |item| %>
+                    <li><%= item %></li>
+                  <% end %>
                 <% end %>
               </ul>
             </td>
