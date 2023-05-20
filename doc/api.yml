@@ -5,76 +5,62 @@ info:
   version: 1.0.0
 
 paths:
+  /:
+    get:
+      summary: Get API information
+      responses:
+        '200':
+          description: Successful operation
   /products:
     get:
-      summary: Retrieve a list of products
-      description: Returns a paginated list of products.
-      parameters:
-        - name: page
-          in: query
-          description: The page number for pagination.
-          schema:
-            type: integer
-            minimum: 1
-          required: false
-          example: 1
-        - name: per_page
-          in: query
-          description: The number of products per page.
-          schema:
-            type: integer
-            minimum: 1
-            maximum: 50
-          required: false
-          example: 10
+      summary: Get all products
       responses:
         '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Product'
-        '400':
-          description: Bad Request
-
-  /products/{code}:
+          description: Successful operation
+  /products/{id}:
     get:
-      summary: Retrieve a product by code
-      description: Returns a product based on its unique code.
+      summary: Get a product by ID
       parameters:
-        - name: code
-          in: path
-          description: The code of the product.
-          schema:
-            type: string
+        - in: path
+          name: id
           required: true
-          example: ABC123
+          schema:
+            type: integer
       responses:
         '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Product'
+          description: Successful operation
         '404':
-          description: Not Found
-
+          description: Product not found
+  /sync:
+    get:
+      summary: Manually trigger synchronization
+      responses:
+        '200':
+          description: Successful operation
 components:
   schemas:
     Product:
       type: object
       properties:
         code:
-          type: string
-          description: The code of the product.
-        name:
-          type: string
-          description: The name of the product.
+          type: String
+        barcode:
+          type: String
+        url:
+          type: String
+        product_name:
+          type: String
         quantity:
-          type: string
-          description: The quantity of the product.
-        price:
-          type: number
-          description: The price of the product.
+          type: String
+        categories:
+          type: String
+        packaging:
+          type: String
+        brands:
+          type: String
+        image_url:
+          type: String
+        status:
+          type: String
+        imported_t:
+          type: DateTime
